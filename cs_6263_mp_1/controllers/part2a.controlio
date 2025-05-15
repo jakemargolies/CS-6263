@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ControlIO Version="v1.0.0">
+  <Properties SyncReset="true" CycleTime="10" />
+  <Diagram DiagramPosition="-905,-340" DiagramScale="0.746215396636627">
+    <NodeData Key="2" Location="-880 -320" NodeType="NumericalSource" OutSource="2" SourceValue="2" MinValue="0" MaxValue="2502" NodeDescription="Canvas Grading Plugin - Do Not Touch" />
+  </Diagram>
+</ControlIO>
