@@ -1,0 +1,105 @@
+1749677205788	geckodriver	INFO	Listening on 127.0.0.1:40435
+1749677206780	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/local/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileSmhEcA"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1749677208457	Marionette	INFO	Marionette enabled
+1749677208931	Marionette	INFO	Listening on port 43611
+Read port: 43611
+1749677209170	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.error: "Can't start recording from event type: " "paste"
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js, line 3026: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js, line 3026: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js, line 3026: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js, line 3026: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval, line 3026: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval, line 3026: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval line 3026 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval, line 3026: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval, line 3026: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval line 3026 > eval line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval line 3026 > eval line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval line 3026 > eval line 1 > eval line 1 > eval, line 1: unreachable code after return statement
+JavaScript warning: https://www.google.com/js/bg/sDc0zTqWKeGwPc6oSV9gMfn8JzF350GjIZjLvROzXVo.js line 2 > eval line 3026 > eval line 1 > eval line 1 > eval, line 1: unreachable code after return statement
+1749677347904	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fclient%3Dfirefox-b-d%26q%3DFile%2B%2522%252Fusr%252Flib%252Fpython2.7%252Fsubprocess.py%2522%252C%2Bline%2B394%252C%2Bin%2B__init__%2B%2B%2B%2B%2Berrread%252C%2Berrwrite%2529%2B%2B%2BFile%2B%2522%252Fusr%252Flib%252Fpython2.7%252Fsubprocess.py%2522%252C%2Bline%2B1047%252C%2Bin%2B_execute_child%2B%2B%2B%2B%2Braise%2Bchild_exception%2BOSError%253A%2B%255BErrno%2B2%255D%2BNo%2Bsuch%2Bfile%2Bor%2Bdirectory%26sei%3DI_VJaObOE_XcptQP1J-8kQ0&q=EgSAPd8uGKPqp8IGIjAPxPA4jd8bBrXktntjc1QyKuvn-QT4LHBXonC7T4Kckj7qJWf4UQ2XdbOjm87yOrwyAVJaAUM, line 1: ReferenceError: solveSimpleChallenge is not defined
+JavaScript error: resource:///actors/InteractionsChild.sys.mjs, line 102: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+console.error: [Exception... "Favicon at "https://stackoverflow.com/favicon.ico" failed to load."  nsresult: "0x8053040c (<unknown>)"  location: "JS frame :: resource:///modules/FaviconLoader.sys.mjs :: onStopRequest :: line 225"  data: no]
+libEGL warning: DRI2: failed to authenticate
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/orchestrate/chl_api/v1?ray=94e434377d23e635&lang=auto, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1749677378512	Marionette	INFO	Stopped listening on port 43611
+console.error: "Failed to fetch https://ads.mozilla.org/v1/delete_user:" "NetworkError when attempting to fetch resource."
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+console.error: services.settings: 
+Object
+  - prototype Object
+    - columnNumber = 0
+    - data = null
+    - filename = resource://gre/modules/ServiceRequest.sys.mjs
+    - lineNumber = 126
+    - location = {"name":"open","filename":"resource://gre/modules/ServiceRequest.sys.mjs","sourceId":25,"lineNumber":126,"columnNumber":11,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/Utils.sys.mjs","name":"fetch/<","sourceId":24,"lineNumber":268,"columnNumber":15,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/Utils.sys.mjs","name":"fetch","sourceId":24,"lineNumber":219,"columnNumber":12,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/Utils.sys.mjs","name":"fetchLatestChanges","sourceId":24,"lineNumber":429,"columnNumber":34,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/RemoteSettingsClient.sys.mjs","name":"sync","sourceId":22,"lineNumber":625,"columnNumber":42,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/RemoteSettingsClient.sys.mjs","name":"get/this._importingPromise<","sourceId":22,"lineNumber":477,"columnNumber":28,"asyncCause":null,"asyncCaller":null,"caller":null,"formattedStack":"get/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"sync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"fetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"fetch@resource://services-settings/Utils.sys.mjs:219:12\nfetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"fetch/<@resource://services-settings/Utils.sys.mjs:268:15\nfetch@resource://services-settings/Utils.sys.mjs:219:12\nfetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"open@resource://gre/modules/ServiceRequest.sys.mjs:126:11\nfetch/<@resource://services-settings/Utils.sys.mjs:268:15\nfetch@resource://services-settings/Utils.sys.mjs:219:12\nfetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}}
+    - message = 
+    - name = 
+    - result = 2152071198
+    - stack = open@resource://gre/modules/ServiceRequest.sys.mjs:126:11|fetch/<@resource://services-settings/Utils.sys.mjs:268:15|fetch@resource://services-settings/Utils.sys.mjs:219:12|fetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34|sync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42|get/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28|
+  - prototype Object
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 47: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1749677511038	geckodriver	INFO	Listening on 127.0.0.1:33723
+1749677511048	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/local/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofilerS3xFp"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1749677512785	Marionette	INFO	Marionette enabled
+1749677513109	Marionette	INFO	Listening on port 43329
+Read port: 43329
+1749677513433	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+1749677688898	Marionette	INFO	Stopped listening on port 43329
+console.error: "Failed to fetch https://ads.mozilla.org/v1/delete_user:" "NetworkError when attempting to fetch resource."
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+console.error: services.settings: 
+Object
+  - prototype Object
+    - columnNumber = 0
+    - data = null
+    - filename = resource://gre/modules/ServiceRequest.sys.mjs
+    - lineNumber = 126
+    - location = {"name":"open","filename":"resource://gre/modules/ServiceRequest.sys.mjs","sourceId":25,"lineNumber":126,"columnNumber":11,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/Utils.sys.mjs","name":"fetch/<","sourceId":24,"lineNumber":268,"columnNumber":15,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/Utils.sys.mjs","name":"fetch","sourceId":24,"lineNumber":219,"columnNumber":12,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/Utils.sys.mjs","name":"fetchLatestChanges","sourceId":24,"lineNumber":429,"columnNumber":34,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/RemoteSettingsClient.sys.mjs","name":"sync","sourceId":22,"lineNumber":625,"columnNumber":42,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/RemoteSettingsClient.sys.mjs","name":"get/this._importingPromise<","sourceId":22,"lineNumber":477,"columnNumber":28,"asyncCause":null,"asyncCaller":null,"caller":null,"formattedStack":"get/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"sync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"fetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"fetch@resource://services-settings/Utils.sys.mjs:219:12\nfetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"fetch/<@resource://services-settings/Utils.sys.mjs:268:15\nfetch@resource://services-settings/Utils.sys.mjs:219:12\nfetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"open@resource://gre/modules/ServiceRequest.sys.mjs:126:11\nfetch/<@resource://services-settings/Utils.sys.mjs:268:15\nfetch@resource://services-settings/Utils.sys.mjs:219:12\nfetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}}
+    - message = 
+    - name = 
+    - result = 2152071198
+    - stack = open@resource://gre/modules/ServiceRequest.sys.mjs:126:11|fetch/<@resource://services-settings/Utils.sys.mjs:268:15|fetch@resource://services-settings/Utils.sys.mjs:219:12|fetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34|sync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42|get/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28|
+  - prototype Object
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 47: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1749677792083	geckodriver	INFO	Listening on 127.0.0.1:44101
+1749677793093	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/local/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofilengHxfc"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1749677794160	Marionette	INFO	Marionette enabled
+1749677794423	Marionette	INFO	Listening on port 39201
+Read port: 39201
+1749677794703	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1749678004966	Marionette	INFO	Stopped listening on port 39201
+console.error: "Failed to fetch https://ads.mozilla.org/v1/delete_user:" "NetworkError when attempting to fetch resource."
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+console.error: services.settings: 
+Object
+  - prototype Object
+    - columnNumber = 0
+    - data = null
+    - filename = resource://gre/modules/ServiceRequest.sys.mjs
+    - lineNumber = 126
+    - location = {"name":"open","filename":"resource://gre/modules/ServiceRequest.sys.mjs","sourceId":25,"lineNumber":126,"columnNumber":11,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/Utils.sys.mjs","name":"fetch/<","sourceId":24,"lineNumber":268,"columnNumber":15,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/Utils.sys.mjs","name":"fetch","sourceId":24,"lineNumber":219,"columnNumber":12,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/Utils.sys.mjs","name":"fetchLatestChanges","sourceId":24,"lineNumber":429,"columnNumber":34,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/RemoteSettingsClient.sys.mjs","name":"sync","sourceId":22,"lineNumber":625,"columnNumber":42,"asyncCause":null,"asyncCaller":null,"caller":{"filename":"resource://services-settings/RemoteSettingsClient.sys.mjs","name":"get/this._importingPromise<","sourceId":22,"lineNumber":477,"columnNumber":28,"asyncCause":null,"asyncCaller":null,"caller":null,"formattedStack":"get/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"sync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"fetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"fetch@resource://services-settings/Utils.sys.mjs:219:12\nfetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"fetch/<@resource://services-settings/Utils.sys.mjs:268:15\nfetch@resource://services-settings/Utils.sys.mjs:219:12\nfetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}},"formattedStack":"open@resource://gre/modules/ServiceRequest.sys.mjs:126:11\nfetch/<@resource://services-settings/Utils.sys.mjs:268:15\nfetch@resource://services-settings/Utils.sys.mjs:219:12\nfetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34\nsync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42\nget/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28\n","nativeSavedFrame":{}}
+    - message = 
+    - name = 
+    - result = 2152071198
+    - stack = open@resource://gre/modules/ServiceRequest.sys.mjs:126:11|fetch/<@resource://services-settings/Utils.sys.mjs:268:15|fetch@resource://services-settings/Utils.sys.mjs:219:12|fetchLatestChanges@resource://services-settings/Utils.sys.mjs:429:34|sync@resource://services-settings/RemoteSettingsClient.sys.mjs:625:42|get/this._importingPromise<@resource://services-settings/RemoteSettingsClient.sys.mjs:477:28|
+  - prototype Object
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 47: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
