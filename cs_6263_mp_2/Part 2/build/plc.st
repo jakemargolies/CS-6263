@@ -1,0 +1,165 @@
+TYPE
+  LOGLEVEL : (CRITICAL, WARNING, INFO, DEBUG) := INFO;
+END_TYPE
+
+FUNCTION_BLOCK LOGGER
+  VAR_INPUT
+    TRIG : BOOL;
+    MSG : STRING;
+    LEVEL : LOGLEVEL := INFO;
+  END_VAR
+  VAR
+    TRIG0 : BOOL;
+  END_VAR
+
+  IF TRIG AND NOT TRIG0 THEN
+  {{
+   LogMessage(GetFbVar(LEVEL),(char*)GetFbVar(MSG, .body),GetFbVar(MSG, .len));
+  }}
+  END_IF;
+  TRIG0:=TRIG;
+END_FUNCTION_BLOCK
+
+
+
+FUNCTION_BLOCK python_eval
+  VAR_INPUT
+    TRIG : BOOL;
+    CODE : STRING;
+  END_VAR
+  VAR_OUTPUT
+    ACK : BOOL;
+    RESULT : STRING;
+  END_VAR
+  VAR
+    STATE : DWORD;
+    BUFFER : STRING;
+    PREBUFFER : STRING;
+    TRIGM1 : BOOL;
+    TRIGGED : BOOL;
+  END_VAR
+
+  {extern void __PythonEvalFB(int, PYTHON_EVAL*);__PythonEvalFB(0, data__);}
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK python_poll
+  VAR_INPUT
+    TRIG : BOOL;
+    CODE : STRING;
+  END_VAR
+  VAR_OUTPUT
+    ACK : BOOL;
+    RESULT : STRING;
+  END_VAR
+  VAR
+    STATE : DWORD;
+    BUFFER : STRING;
+    PREBUFFER : STRING;
+    TRIGM1 : BOOL;
+    TRIGGED : BOOL;
+  END_VAR
+
+  {extern void __PythonEvalFB(int, PYTHON_EVAL*);__PythonEvalFB(1,(PYTHON_EVAL*)(void*)data__);}
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK python_gear
+  VAR_INPUT
+    N : UINT;
+    TRIG : BOOL;
+    CODE : STRING;
+  END_VAR
+  VAR_OUTPUT
+    ACK : BOOL;
+    RESULT : STRING;
+  END_VAR
+  VAR
+    py_eval : python_eval;
+    COUNTER : UINT;
+    ADD10_OUT : UINT;
+    EQ13_OUT : BOOL;
+    SEL15_OUT : UINT;
+    AND7_OUT : BOOL;
+  END_VAR
+
+  ADD10_OUT := ADD(COUNTER, 1);
+  EQ13_OUT := EQ(N, ADD10_OUT);
+  SEL15_OUT := SEL(EQ13_OUT, ADD10_OUT, 0);
+  COUNTER := SEL15_OUT;
+  AND7_OUT := AND(EQ13_OUT, TRIG);
+  py_eval(TRIG := AND7_OUT, CODE := CODE);
+  ACK := py_eval.ACK;
+  RESULT := py_eval.RESULT;
+END_FUNCTION_BLOCK
+
+
+PROGRAM part2
+  VAR
+    PosX_b0 : BOOL;
+    PosX_b1 : BOOL;
+    PosX_b2 : BOOL;
+    PosX_b3 : BOOL;
+    PosY_b0 : BOOL;
+    PosY_b1 : BOOL;
+    PosY_b2 : BOOL;
+    PosY_b3 : BOOL;
+    TargetX_b0 : BOOL;
+    TargetX_b1 : BOOL;
+    TargetX_b2 : BOOL;
+    TargetX_b3 : BOOL;
+    TargetY_b0 : BOOL;
+    TargetY_b1 : BOOL;
+    TargetY_b2 : BOOL;
+    TargetY_b3 : BOOL;
+    MoveUp : BOOL;
+    MoveDown : BOOL;
+    MoveLeft : BOOL;
+    MoveRight : BOOL;
+  END_VAR
+  VAR
+    PosX_UINT : UINT;
+    BOOL_TO_UINT1_OUT : UINT;
+    BOOL_TO_UINT2_OUT : UINT;
+    MUL17_OUT : UINT;
+    ADD24_OUT : UINT;
+    BOOL_TO_UINT3_OUT : UINT;
+    MUL18_OUT : UINT;
+    BOOL_TO_UINT4_OUT : UINT;
+    MUL19_OUT : UINT;
+    ADD23_OUT : UINT;
+    ADD25_OUT : UINT;
+    MOVE26_ENO : BOOL;
+    MOVE26_OUT : UINT;
+    BOOL_TO_UINT5_OUT : UINT;
+    BOOL_TO_UINT6_OUT : UINT;
+    BOOL_TO_UINT7_OUT : UINT;
+    BOOL_TO_UINT8_OUT : UINT;
+  END_VAR
+
+  BOOL_TO_UINT1_OUT := BOOL_TO_UINT(PosX_b0);
+  BOOL_TO_UINT2_OUT := BOOL_TO_UINT(PosX_b1);
+  MUL17_OUT := MUL(BOOL_TO_UINT2_OUT, 2);
+  ADD24_OUT := ADD(BOOL_TO_UINT1_OUT, MUL17_OUT);
+  BOOL_TO_UINT3_OUT := BOOL_TO_UINT(PosX_b2);
+  MUL18_OUT := MUL(BOOL_TO_UINT3_OUT, 4);
+  BOOL_TO_UINT4_OUT := BOOL_TO_UINT(PosX_b3);
+  MUL19_OUT := MUL(BOOL_TO_UINT4_OUT, 8);
+  ADD23_OUT := ADD(MUL18_OUT, MUL19_OUT);
+  ADD25_OUT := ADD(ADD24_OUT, ADD23_OUT);
+  MOVE26_OUT := MOVE(EN := TRUE, IN := ADD25_OUT, ENO => MOVE26_ENO);
+  IF MOVE26_ENO THEN
+      PosX_UINT := MOVE26_OUT;
+  END_IF;
+  BOOL_TO_UINT5_OUT := BOOL_TO_UINT(PosY_b0);
+  BOOL_TO_UINT6_OUT := BOOL_TO_UINT(PosY_b1);
+  BOOL_TO_UINT7_OUT := BOOL_TO_UINT(PosY_b2);
+  BOOL_TO_UINT8_OUT := BOOL_TO_UINT(PosY_b3);
+END_PROGRAM
+
+
+CONFIGURATION Config0
+
+  RESOURCE Res0 ON PLC
+    TASK task0(INTERVAL := T#20ms,PRIORITY := 0);
+    PROGRAM instance0 WITH task0 : part2;
+  END_RESOURCE
+END_CONFIGURATION
