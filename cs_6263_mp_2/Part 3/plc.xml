@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<project xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
+<project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2025-06-11T17:52:01"/>
-  <contentHeader name="Unnamed" modificationDateTime="2025-06-11T18:49:32">
+  <contentHeader name="Unnamed" modificationDateTime="2025-06-12T18:54:32">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -57,20 +57,45 @@
             </variable>
           </localVars>
           <localVars>
-            <variable name="SlowDown">
+            <variable name="State">
               <type>
-                <BOOL/>
+                <UINT/>
               </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
             </variable>
-            <variable name="PedXing">
+            <variable name="wait_to_cross">
               <type>
-                <BOOL/>
+                <UINT/>
               </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
             </variable>
-            <variable name="AllRed">
+            <variable name="slow_cars">
               <type>
-                <BOOL/>
+                <UINT/>
               </type>
+              <initialValue>
+                <simpleValue value="1"/>
+              </initialValue>
+            </variable>
+            <variable name="ped_xing">
+              <type>
+                <UINT/>
+              </type>
+              <initialValue>
+                <simpleValue value="2"/>
+              </initialValue>
+            </variable>
+            <variable name="all_red">
+              <type>
+                <UINT/>
+              </type>
+              <initialValue>
+                <simpleValue value="3"/>
+              </initialValue>
             </variable>
             <variable name="SR0">
               <type>
@@ -82,19 +107,9 @@
                 <derived name="TON"/>
               </type>
             </variable>
-            <variable name="SR1">
-              <type>
-                <derived name="SR"/>
-              </type>
-            </variable>
             <variable name="TON1">
               <type>
                 <derived name="TON"/>
-              </type>
-            </variable>
-            <variable name="SR2">
-              <type>
-                <derived name="SR"/>
               </type>
             </variable>
             <variable name="TON2">
@@ -102,94 +117,95 @@
                 <derived name="TON"/>
               </type>
             </variable>
+            <variable name="reset_button">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
           </localVars>
         </interface>
         <body>
           <LD>
-            <contact localId="1" height="20" width="21" negated="false">
-              <position x="600" y="160"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="600" y="170"/>
-                  <position x="560" y="170"/>
-                  <position x="560" y="230"/>
-                  <position x="520" y="230"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>PedButton</variable>
-            </contact>
-            <block localId="2" typeName="SR" instanceName="SR0" height="60" width="50">
-              <position x="710" y="140"/>
+            <block localId="39" typeName="EQ" height="80" width="70">
+              <position x="470" y="250"/>
               <inputVariables>
-                <variable formalParameter="S1">
+                <variable formalParameter="EN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="1">
-                      <position x="710" y="170"/>
-                      <position x="621" y="170"/>
+                    <connection refLocalId="63">
+                      <position x="470" y="280"/>
+                      <position x="340" y="280"/>
+                      <position x="340" y="260"/>
+                      <position x="210" y="260"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
-                <variable formalParameter="R">
+                <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="20">
-                      <position x="710" y="190"/>
-                      <position x="665" y="190"/>
-                      <position x="665" y="210"/>
-                      <position x="620" y="210"/>
+                    <connection refLocalId="40">
+                      <position x="470" y="300"/>
+                      <position x="440" y="300"/>
+                      <position x="440" y="310"/>
+                      <position x="400" y="310"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="41">
+                      <position x="470" y="320"/>
+                      <position x="455" y="320"/>
+                      <position x="455" y="350"/>
+                      <position x="430" y="350"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
               </inputVariables>
               <inOutVariables/>
               <outputVariables>
-                <variable formalParameter="Q1">
+                <variable formalParameter="ENO">
                   <connectionPointOut>
-                    <relPosition x="50" y="30"/>
+                    <relPosition x="70" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="70" y="50"/>
                   </connectionPointOut>
                 </variable>
               </outputVariables>
             </block>
-            <contact localId="3" height="20" width="21" negated="true" executionOrderId="0">
-              <position x="590" y="40"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="590" y="50"/>
-                  <position x="520" y="50"/>
-                </connection>
-              </connectionPointIn>
+            <inVariable localId="40" height="30" width="50" negated="false">
+              <position x="350" y="290"/>
               <connectionPointOut>
-                <relPosition x="21" y="10"/>
+                <relPosition x="50" y="20"/>
               </connectionPointOut>
-              <variable>PedXing</variable>
-            </contact>
-            <contact localId="4" height="20" width="21" negated="true" executionOrderId="0">
-              <position x="680" y="40"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="3">
-                  <position x="680" y="50"/>
-                  <position x="611" y="50"/>
-                </connection>
-              </connectionPointIn>
+              <expression>State</expression>
+            </inVariable>
+            <inVariable localId="41" height="30" width="120" negated="false">
+              <position x="310" y="330"/>
               <connectionPointOut>
-                <relPosition x="21" y="10"/>
+                <relPosition x="120" y="20"/>
               </connectionPointOut>
-              <variable>SlowDown</variable>
-            </contact>
-            <coil localId="5" height="20" width="21" negated="false">
-              <position x="870" y="40"/>
+              <expression>wait_to_cross</expression>
+            </inVariable>
+            <comment localId="42" height="40" width="330">
+              <position x="310" y="170"/>
+              <content>
+                <xhtml:p><![CDATA[State 0: Waiting for request to cross]]></xhtml:p>
+              </content>
+            </comment>
+            <coil localId="43" height="20" width="21" negated="false">
+              <position x="610" y="270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="24">
-                  <position x="870" y="50"/>
-                  <position x="781" y="50"/>
+                <connection refLocalId="39" formalParameter="OUT">
+                  <position x="610" y="280"/>
+                  <position x="575" y="280"/>
+                  <position x="575" y="300"/>
+                  <position x="540" y="300"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -197,130 +213,13 @@
               </connectionPointOut>
               <variable>CarGreenLight</variable>
             </coil>
-            <block localId="10" typeName="AND" height="60" width="70">
-              <position x="830" y="130"/>
-              <inputVariables>
-                <variable formalParameter="IN1">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="2" formalParameter="Q1">
-                      <position x="830" y="160"/>
-                      <position x="740" y="160"/>
-                      <position x="740" y="170"/>
-                      <position x="776" y="170"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN2">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="11">
-                      <position x="830" y="180"/>
-                      <position x="740" y="180"/>
-                      <position x="740" y="215"/>
-                      <position x="811" y="215"/>
-                      <position x="811" y="240"/>
-                      <position x="751" y="240"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="OUT">
-                  <connectionPointOut>
-                    <relPosition x="70" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <contact localId="11" height="20" width="21" negated="true">
-              <position x="730" y="230"/>
+            <coil localId="45" height="20" width="21" negated="false">
+              <position x="720" y="270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="730" y="240"/>
-                  <position x="650" y="240"/>
-                  <position x="650" y="320"/>
-                  <position x="520" y="320"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>CarSensor</variable>
-            </contact>
-            <coil localId="12" height="20" width="21" negated="false">
-              <position x="1180" y="170"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="36" formalParameter="OUT">
-                  <position x="1180" y="180"/>
-                  <position x="1145" y="180"/>
-                  <position x="1145" y="170"/>
-                  <position x="1110" y="170"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>SlowDown</variable>
-            </coil>
-            <coil localId="8" height="20" width="21" negated="false" executionOrderId="0">
-              <position x="690" y="340"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="13">
-                  <position x="690" y="350"/>
-                  <position x="655" y="350"/>
-                  <position x="655" y="360"/>
-                  <position x="601" y="360"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>CarYellowLight</variable>
-            </coil>
-            <contact localId="13" height="20" width="21" negated="false">
-              <position x="580" y="350"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="580" y="360"/>
-                  <position x="540" y="360"/>
-                  <position x="540" y="400"/>
-                  <position x="520" y="400"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>SlowDown</variable>
-            </contact>
-            <contact localId="6" height="20" width="21" negated="true" executionOrderId="0">
-              <position x="580" y="90"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="580" y="100"/>
-                  <position x="550" y="100"/>
-                  <position x="550" y="140"/>
-                  <position x="520" y="140"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>PedXing</variable>
-            </contact>
-            <coil localId="7" height="20" width="21" negated="false" executionOrderId="0">
-              <position x="710" y="90"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="6">
-                  <position x="710" y="100"/>
-                  <position x="601" y="100"/>
+                <connection refLocalId="43">
+                  <position x="720" y="280"/>
+                  <position x="631" y="280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -328,28 +227,261 @@
               </connectionPointOut>
               <variable>PedRedLight</variable>
             </coil>
-            <block localId="14" typeName="TON" instanceName="TON0" height="60" width="50">
-              <position x="830" y="290"/>
+            <contact localId="46" height="20" width="21" negated="false">
+              <position x="630" y="380"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="39" formalParameter="OUT">
+                  <position x="630" y="390"/>
+                  <position x="584" y="390"/>
+                  <position x="584" y="300"/>
+                  <position x="540" y="300"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>PedButton</variable>
+            </contact>
+            <block localId="47" typeName="SR" instanceName="SR0" height="80" width="60">
+              <position x="700" y="330"/>
+              <inputVariables>
+                <variable formalParameter="EN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="39" formalParameter="OUT">
+                      <position x="700" y="360"/>
+                      <position x="590" y="360"/>
+                      <position x="590" y="300"/>
+                      <position x="540" y="300"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="S1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="46">
+                      <position x="700" y="380"/>
+                      <position x="674" y="380"/>
+                      <position x="674" y="390"/>
+                      <position x="651" y="390"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="R">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="62">
+                      <position x="700" y="400"/>
+                      <position x="620" y="400"/>
+                      <position x="620" y="430"/>
+                      <position x="540" y="430"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO">
+                  <connectionPointOut>
+                    <relPosition x="60" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="Q1">
+                  <connectionPointOut>
+                    <relPosition x="60" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <contact localId="1" height="20" width="21" negated="true" executionOrderId="0">
+              <position x="810" y="370"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="47" formalParameter="Q1">
+                  <position x="810" y="380"/>
+                  <position x="760" y="380"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CarSensor</variable>
+            </contact>
+            <block localId="48" typeName="MOVE" height="60" width="60">
+              <position x="890" y="350"/>
+              <inputVariables>
+                <variable formalParameter="EN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="1">
+                      <position x="890" y="380"/>
+                      <position x="831" y="380"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="49">
+                      <position x="890" y="400"/>
+                      <position x="865" y="400"/>
+                      <position x="865" y="440"/>
+                      <position x="840" y="440"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO">
+                  <connectionPointOut>
+                    <relPosition x="60" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="60" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="49" height="30" width="90" negated="false">
+              <position x="750" y="420"/>
+              <connectionPointOut>
+                <relPosition x="90" y="20"/>
+              </connectionPointOut>
+              <expression>slow_cars</expression>
+            </inVariable>
+            <outVariable localId="2" height="30" width="50" negated="false">
+              <position x="960" y="390"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="48" formalParameter="OUT">
+                  <position x="960" y="400"/>
+                  <position x="950" y="400"/>
+                  <position x="950" y="400"/>
+                  <position x="950" y="400"/>
+                </connection>
+              </connectionPointIn>
+              <expression>State</expression>
+            </outVariable>
+            <inVariable localId="3" height="30" width="50" negated="false" executionOrderId="0">
+              <position x="360" y="550"/>
+              <connectionPointOut>
+                <relPosition x="50" y="20"/>
+              </connectionPointOut>
+              <expression>State</expression>
+            </inVariable>
+            <block localId="4" typeName="EQ" height="80" width="70" executionOrderId="0">
+              <position x="460" y="510"/>
+              <inputVariables>
+                <variable formalParameter="EN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="63">
+                      <position x="460" y="540"/>
+                      <position x="300" y="540"/>
+                      <position x="300" y="650"/>
+                      <position x="210" y="650"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="3">
+                      <position x="460" y="560"/>
+                      <position x="445" y="560"/>
+                      <position x="445" y="570"/>
+                      <position x="410" y="570"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="5">
+                      <position x="460" y="580"/>
+                      <position x="440" y="580"/>
+                      <position x="440" y="640"/>
+                      <position x="400" y="640"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO">
+                  <connectionPointOut>
+                    <relPosition x="70" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="70" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="5" height="30" width="90" negated="false" executionOrderId="0">
+              <position x="310" y="620"/>
+              <connectionPointOut>
+                <relPosition x="90" y="20"/>
+              </connectionPointOut>
+              <expression>slow_cars</expression>
+            </inVariable>
+            <coil localId="6" height="20" width="21" negated="false" executionOrderId="0">
+              <position x="750" y="490"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="7">
+                  <position x="750" y="500"/>
+                  <position x="661" y="500"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>PedRedLight</variable>
+            </coil>
+            <coil localId="7" height="20" width="21" negated="false" executionOrderId="0">
+              <position x="640" y="490"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="4" formalParameter="OUT">
+                  <position x="640" y="500"/>
+                  <position x="590" y="500"/>
+                  <position x="590" y="560"/>
+                  <position x="530" y="560"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CarYellowLight</variable>
+            </coil>
+            <block localId="50" typeName="TON" instanceName="TON0" height="60" width="50">
+              <position x="600" y="560"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="8">
-                      <position x="830" y="320"/>
-                      <position x="770" y="320"/>
-                      <position x="770" y="350"/>
-                      <position x="710" y="350"/>
+                    <connection refLocalId="4" formalParameter="OUT">
+                      <position x="600" y="590"/>
+                      <position x="555" y="590"/>
+                      <position x="555" y="560"/>
+                      <position x="530" y="560"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="PT">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="15">
-                      <position x="830" y="340"/>
-                      <position x="820" y="340"/>
-                      <position x="820" y="360"/>
-                      <position x="800" y="360"/>
+                    <connection refLocalId="8">
+                      <position x="584" y="610"/>
+                      <position x="600" y="610"/>
+                      <position x="592" y="625"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -368,99 +500,78 @@
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="15" height="30" width="50" negated="false">
-              <position x="750" y="350"/>
+            <inVariable localId="8" height="30" width="50" negated="false" executionOrderId="0">
+              <position x="540" y="600"/>
               <connectionPointOut>
                 <relPosition x="50" y="10"/>
               </connectionPointOut>
               <expression>T#3s</expression>
             </inVariable>
-            <block localId="9" typeName="SR" instanceName="SR1" height="60" width="50" executionOrderId="0">
-              <position x="930" y="290"/>
+            <block localId="9" typeName="MOVE" height="60" width="60" executionOrderId="0">
+              <position x="730" y="560"/>
               <inputVariables>
-                <variable formalParameter="S1">
+                <variable formalParameter="EN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="14" formalParameter="Q">
-                      <position x="930" y="320"/>
-                      <position x="880" y="320"/>
+                    <connection refLocalId="50" formalParameter="Q">
+                      <position x="730" y="590"/>
+                      <position x="650" y="590"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
-                <variable formalParameter="R">
+                <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="35">
-                      <position x="930" y="340"/>
-                      <position x="905" y="340"/>
-                      <position x="905" y="380"/>
-                      <position x="880" y="380"/>
+                    <connection refLocalId="10">
+                      <position x="730" y="610"/>
+                      <position x="720" y="610"/>
+                      <position x="720" y="640"/>
+                      <position x="700" y="640"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
               </inputVariables>
               <inOutVariables/>
               <outputVariables>
-                <variable formalParameter="Q1">
+                <variable formalParameter="ENO">
                   <connectionPointOut>
-                    <relPosition x="50" y="30"/>
+                    <relPosition x="60" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="60" y="50"/>
                   </connectionPointOut>
                 </variable>
               </outputVariables>
             </block>
-            <coil localId="16" height="20" width="21" negated="false" executionOrderId="0">
-              <position x="1110" y="310"/>
+            <inVariable localId="10" height="30" width="90" negated="false" executionOrderId="0">
+              <position x="610" y="630"/>
+              <connectionPointOut>
+                <relPosition x="90" y="10"/>
+              </connectionPointOut>
+              <expression>ped_xing</expression>
+            </inVariable>
+            <outVariable localId="11" height="30" width="50" negated="false" executionOrderId="0">
+              <position x="800" y="600"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="28" formalParameter="OUT">
-                  <position x="1110" y="320"/>
-                  <position x="1080" y="320"/>
+                <connection refLocalId="9" formalParameter="OUT">
+                  <position x="800" y="610"/>
+                  <position x="800" y="610"/>
+                  <position x="800" y="610"/>
+                  <position x="790" y="610"/>
                 </connection>
               </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>PedXing</variable>
-            </coil>
-            <contact localId="18" height="20" width="21" negated="true" executionOrderId="0">
-              <position x="850" y="240"/>
+              <expression>State</expression>
+            </outVariable>
+            <coil localId="51" height="20" width="21" negated="true">
+              <position x="828" y="270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="850" y="250"/>
-                  <position x="540" y="250"/>
-                  <position x="540" y="320"/>
-                  <position x="520" y="320"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>PedXing</variable>
-            </contact>
-            <contact localId="19" height="20" width="21" negated="false" executionOrderId="0">
-              <position x="590" y="460"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="590" y="470"/>
-                  <position x="555" y="470"/>
-                  <position x="555" y="490"/>
-                  <position x="520" y="490"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>PedXing</variable>
-            </contact>
-            <coil localId="21" height="20" width="21" negated="false" executionOrderId="0">
-              <position x="690" y="460"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="19">
-                  <position x="690" y="470"/>
-                  <position x="611" y="470"/>
+                <connection refLocalId="45">
+                  <position x="828" y="280"/>
+                  <position x="741" y="280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -468,198 +579,279 @@
               </connectionPointOut>
               <variable>PedGreenLight</variable>
             </coil>
-            <block localId="23" typeName="TON" instanceName="TON1" height="60" width="50">
-              <position x="910" y="440"/>
-              <inputVariables>
-                <variable formalParameter="IN">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="21">
-                      <position x="910" y="470"/>
-                      <position x="711" y="470"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="PT">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="26">
-                      <position x="910" y="490"/>
-                      <position x="890" y="490"/>
-                      <position x="890" y="520"/>
-                      <position x="870" y="520"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="Q">
-                  <connectionPointOut>
-                    <relPosition x="50" y="30"/>
-                  </connectionPointOut>
-                </variable>
-                <variable formalParameter="ET">
-                  <connectionPointOut>
-                    <relPosition x="50" y="50"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <contact localId="24" height="20" width="21" negated="true" executionOrderId="0">
-              <position x="760" y="40"/>
+            <coil localId="52" height="20" width="21" negated="true">
+              <position x="938" y="270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="4">
-                  <position x="760" y="50"/>
-                  <position x="701" y="50"/>
+                <connection refLocalId="51">
+                  <position x="938" y="280"/>
+                  <position x="849" y="280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>AllRed</variable>
-            </contact>
-            <coil localId="25" height="20" width="21" negated="false">
-              <position x="1120" y="460"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="27" formalParameter="Q1">
-                  <position x="1120" y="470"/>
-                  <position x="1060" y="470"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>AllRed</variable>
+              <variable>CarRedLight</variable>
             </coil>
-            <inVariable localId="26" height="30" width="50" negated="false">
-              <position x="820" y="500"/>
+            <coil localId="53" height="20" width="21" negated="true">
+              <position x="1048" y="270"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="52">
+                  <position x="1048" y="280"/>
+                  <position x="959" y="280"/>
+                </connection>
+              </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="50" y="20"/>
+                <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <expression>T#15s</expression>
-            </inVariable>
-            <block localId="27" typeName="SR" instanceName="SR2" height="60" width="50" executionOrderId="0">
-              <position x="1010" y="440"/>
+              <variable>CarYellowLight</variable>
+            </coil>
+            <rightPowerRail localId="55" height="340" width="10">
+              <position x="1140" y="280"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="53">
+                  <position x="1140" y="300"/>
+                  <position x="1104" y="300"/>
+                  <position x="1104" y="280"/>
+                  <position x="1069" y="280"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="120"/>
+                <connection refLocalId="48" formalParameter="ENO">
+                  <position x="1140" y="400"/>
+                  <position x="1045" y="400"/>
+                  <position x="1045" y="380"/>
+                  <position x="950" y="380"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="220"/>
+                <connection refLocalId="58">
+                  <position x="1140" y="500"/>
+                  <position x="1088" y="500"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="320"/>
+                <connection refLocalId="9" formalParameter="ENO">
+                  <position x="1140" y="600"/>
+                  <position x="965" y="600"/>
+                  <position x="965" y="590"/>
+                  <position x="790" y="590"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <coil localId="56" height="20" width="21" negated="true">
+              <position x="850" y="490"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="6">
+                  <position x="850" y="500"/>
+                  <position x="771" y="500"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CarGreenLight</variable>
+            </coil>
+            <coil localId="57" height="20" width="21" negated="true">
+              <position x="950" y="490"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="56">
+                  <position x="950" y="500"/>
+                  <position x="871" y="500"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CarRedLight</variable>
+            </coil>
+            <coil localId="58" height="20" width="21" negated="true">
+              <position x="1068" y="490"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="57">
+                  <position x="1068" y="500"/>
+                  <position x="971" y="500"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>PedGreenLight</variable>
+            </coil>
+            <rightPowerRail localId="59" height="40" width="10">
+              <position x="860" y="310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="47" formalParameter="ENO">
+                  <position x="860" y="330"/>
+                  <position x="780" y="330"/>
+                  <position x="780" y="360"/>
+                  <position x="760" y="360"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <block localId="12" typeName="EQ" height="80" width="70" executionOrderId="0">
+              <position x="590" y="710"/>
               <inputVariables>
-                <variable formalParameter="S1">
+                <variable formalParameter="EN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="23" formalParameter="Q">
-                      <position x="1010" y="470"/>
-                      <position x="960" y="470"/>
+                    <connection refLocalId="63">
+                      <position x="590" y="740"/>
+                      <position x="400" y="740"/>
+                      <position x="400" y="840"/>
+                      <position x="210" y="840"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
-                <variable formalParameter="R">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="31" formalParameter="Q">
-                      <position x="1010" y="490"/>
-                      <position x="991" y="490"/>
-                      <position x="991" y="590"/>
-                      <position x="740" y="590"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="Q1">
-                  <connectionPointOut>
-                    <relPosition x="50" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <block localId="28" typeName="AND" height="60" width="70" executionOrderId="0">
-              <position x="1010" y="290"/>
-              <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="9" formalParameter="Q1">
-                      <position x="1010" y="320"/>
-                      <position x="980" y="320"/>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="13">
+                      <position x="590" y="760"/>
+                      <position x="575" y="760"/>
+                      <position x="575" y="770"/>
+                      <position x="540" y="770"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="IN2">
                   <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="29">
-                      <position x="1010" y="340"/>
-                      <position x="991" y="340"/>
-                      <position x="991" y="375"/>
-                      <position x="1001" y="375"/>
-                      <position x="1001" y="400"/>
-                      <position x="981" y="400"/>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="14">
+                      <position x="590" y="780"/>
+                      <position x="570" y="780"/>
+                      <position x="570" y="850"/>
+                      <position x="560" y="850"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
               </inputVariables>
               <inOutVariables/>
               <outputVariables>
-                <variable formalParameter="OUT">
+                <variable formalParameter="ENO">
                   <connectionPointOut>
                     <relPosition x="70" y="30"/>
                   </connectionPointOut>
                 </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="70" y="50"/>
+                  </connectionPointOut>
+                </variable>
               </outputVariables>
             </block>
-            <contact localId="29" height="20" width="21" negated="true" executionOrderId="0">
-              <position x="960" y="390"/>
+            <inVariable localId="13" height="30" width="50" negated="false" executionOrderId="0">
+              <position x="490" y="750"/>
+              <connectionPointOut>
+                <relPosition x="50" y="20"/>
+              </connectionPointOut>
+              <expression>State</expression>
+            </inVariable>
+            <inVariable localId="14" height="30" width="90" negated="false" executionOrderId="0">
+              <position x="470" y="830"/>
+              <connectionPointOut>
+                <relPosition x="90" y="20"/>
+              </connectionPointOut>
+              <expression>ped_xing</expression>
+            </inVariable>
+            <coil localId="15" height="20" width="21" negated="true" executionOrderId="0">
+              <position x="710" y="730"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="960" y="400"/>
-                  <position x="520" y="400"/>
+                <connection refLocalId="12" formalParameter="OUT">
+                  <position x="710" y="740"/>
+                  <position x="685" y="740"/>
+                  <position x="685" y="760"/>
+                  <position x="660" y="760"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>AllRed</variable>
-            </contact>
-            <contact localId="30" height="20" width="21" negated="false" executionOrderId="0">
-              <position x="590" y="570"/>
+              <variable>CarYellowLight</variable>
+            </coil>
+            <coil localId="16" height="20" width="21" negated="true" executionOrderId="0">
+              <position x="820" y="730"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="590" y="580"/>
-                  <position x="520" y="580"/>
+                <connection refLocalId="15">
+                  <position x="820" y="740"/>
+                  <position x="731" y="740"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>AllRed</variable>
-            </contact>
-            <block localId="31" typeName="TON" instanceName="TON2" height="60" width="50">
-              <position x="690" y="560"/>
+              <variable>PedRedLight</variable>
+            </coil>
+            <coil localId="17" height="20" width="21" negated="true" executionOrderId="0">
+              <position x="920" y="730"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="16">
+                  <position x="920" y="740"/>
+                  <position x="841" y="740"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CarGreenLight</variable>
+            </coil>
+            <coil localId="18" height="20" width="21" negated="false" executionOrderId="0">
+              <position x="1020" y="730"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="17">
+                  <position x="1020" y="740"/>
+                  <position x="941" y="740"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CarRedLight</variable>
+            </coil>
+            <coil localId="19" height="20" width="21" negated="false" executionOrderId="0">
+              <position x="1120" y="730"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="18">
+                  <position x="1120" y="740"/>
+                  <position x="1041" y="740"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>PedGreenLight</variable>
+            </coil>
+            <block localId="20" typeName="TON" instanceName="TON1" height="60" width="50" executionOrderId="0">
+              <position x="710" y="790"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="30">
-                      <position x="690" y="590"/>
-                      <position x="650" y="590"/>
-                      <position x="650" y="580"/>
-                      <position x="611" y="580"/>
+                    <connection refLocalId="12" formalParameter="OUT">
+                      <position x="710" y="820"/>
+                      <position x="685" y="820"/>
+                      <position x="685" y="760"/>
+                      <position x="660" y="760"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="PT">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="32">
-                      <position x="690" y="610"/>
-                      <position x="670" y="610"/>
-                      <position x="670" y="620"/>
-                      <position x="650" y="620"/>
-                    </connection>
                   </connectionPointIn>
                 </variable>
               </inputVariables>
@@ -677,238 +869,430 @@
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="32" height="30" width="50" negated="false" executionOrderId="0">
-              <position x="600" y="610"/>
+            <inVariable localId="21" height="30" width="50" negated="false" executionOrderId="0">
+              <position x="650" y="830"/>
+              <connectionPointOut>
+                <relPosition x="50" y="10"/>
+              </connectionPointOut>
+              <expression>T#15s</expression>
+            </inVariable>
+            <inVariable localId="22" height="30" width="90" negated="false" executionOrderId="0">
+              <position x="720" y="860"/>
+              <connectionPointOut>
+                <relPosition x="90" y="20"/>
+              </connectionPointOut>
+              <expression>all_red</expression>
+            </inVariable>
+            <block localId="23" typeName="MOVE" height="60" width="60" executionOrderId="0">
+              <position x="840" y="790"/>
+              <inputVariables>
+                <variable formalParameter="EN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="20" formalParameter="Q">
+                      <position x="840" y="820"/>
+                      <position x="760" y="820"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="22">
+                      <position x="840" y="840"/>
+                      <position x="825" y="840"/>
+                      <position x="825" y="880"/>
+                      <position x="810" y="880"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO">
+                  <connectionPointOut>
+                    <relPosition x="60" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="60" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <outVariable localId="24" height="30" width="50" negated="false" executionOrderId="0">
+              <position x="910" y="830"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+              </connectionPointIn>
+              <expression>State</expression>
+            </outVariable>
+            <block localId="25" typeName="EQ" height="80" width="70" executionOrderId="0">
+              <position x="580" y="910"/>
+              <inputVariables>
+                <variable formalParameter="EN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="63">
+                      <position x="580" y="940"/>
+                      <position x="395" y="940"/>
+                      <position x="395" y="1040"/>
+                      <position x="210" y="1040"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="26">
+                      <position x="580" y="960"/>
+                      <position x="565" y="960"/>
+                      <position x="565" y="970"/>
+                      <position x="540" y="970"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="70"/>
+                    <connection refLocalId="27">
+                      <position x="580" y="980"/>
+                      <position x="560" y="980"/>
+                      <position x="560" y="1010"/>
+                      <position x="530" y="1010"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO">
+                  <connectionPointOut>
+                    <relPosition x="70" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="70" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="26" height="30" width="50" negated="false" executionOrderId="0">
+              <position x="490" y="950"/>
+              <connectionPointOut>
+                <relPosition x="50" y="20"/>
+              </connectionPointOut>
+              <expression>State</expression>
+            </inVariable>
+            <inVariable localId="27" height="30" width="90" negated="false" executionOrderId="0">
+              <position x="440" y="990"/>
+              <connectionPointOut>
+                <relPosition x="90" y="20"/>
+              </connectionPointOut>
+              <expression>all_red</expression>
+            </inVariable>
+            <coil localId="28" height="20" width="21" negated="true" executionOrderId="0">
+              <position x="700" y="930"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="25" formalParameter="OUT">
+                  <position x="700" y="940"/>
+                  <position x="675" y="940"/>
+                  <position x="675" y="960"/>
+                  <position x="650" y="960"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CarYellowLight</variable>
+            </coil>
+            <coil localId="29" height="20" width="21" negated="false" executionOrderId="0">
+              <position x="810" y="930"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="28">
+                  <position x="810" y="940"/>
+                  <position x="721" y="940"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>PedRedLight</variable>
+            </coil>
+            <coil localId="30" height="20" width="21" negated="true" executionOrderId="0">
+              <position x="910" y="930"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="29">
+                  <position x="910" y="940"/>
+                  <position x="831" y="940"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CarGreenLight</variable>
+            </coil>
+            <coil localId="31" height="20" width="21" negated="false" executionOrderId="0">
+              <position x="1010" y="930"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="30">
+                  <position x="1010" y="940"/>
+                  <position x="931" y="940"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CarRedLight</variable>
+            </coil>
+            <coil localId="32" height="20" width="21" negated="true" executionOrderId="0">
+              <position x="1110" y="930"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="31">
+                  <position x="1110" y="940"/>
+                  <position x="1031" y="940"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>PedGreenLight</variable>
+            </coil>
+            <block localId="33" typeName="TON" instanceName="TON2" height="60" width="50" executionOrderId="0">
+              <position x="700" y="990"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="25" formalParameter="OUT">
+                      <position x="700" y="1020"/>
+                      <position x="675" y="1020"/>
+                      <position x="675" y="960"/>
+                      <position x="650" y="960"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="PT">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="Q">
+                  <connectionPointOut>
+                    <relPosition x="50" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="ET">
+                  <connectionPointOut>
+                    <relPosition x="50" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="34" height="30" width="50" negated="false" executionOrderId="0">
+              <position x="640" y="1030"/>
               <connectionPointOut>
                 <relPosition x="50" y="10"/>
               </connectionPointOut>
               <expression>T#1s</expression>
             </inVariable>
-            <leftPowerRail localId="33" height="570" width="10">
-              <position x="510" y="30"/>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="20"/>
+            <inVariable localId="35" height="30" width="120" negated="false" executionOrderId="0">
+              <position x="710" y="1060"/>
+              <connectionPointOut>
+                <relPosition x="120" y="20"/>
               </connectionPointOut>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="110"/>
-              </connectionPointOut>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="200"/>
-              </connectionPointOut>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="290"/>
-              </connectionPointOut>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="370"/>
-              </connectionPointOut>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="460"/>
-              </connectionPointOut>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="550"/>
-              </connectionPointOut>
-            </leftPowerRail>
-            <rightPowerRail localId="34" height="460" width="10">
-              <position x="1240" y="120"/>
+              <expression>wait_to_cross</expression>
+            </inVariable>
+            <block localId="36" typeName="MOVE" height="60" width="60" executionOrderId="0">
+              <position x="830" y="990"/>
+              <inputVariables>
+                <variable formalParameter="EN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="33" formalParameter="Q">
+                      <position x="830" y="1020"/>
+                      <position x="750" y="1020"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="35">
+                      <position x="830" y="1040"/>
+                      <position x="815" y="1040"/>
+                      <position x="815" y="1060"/>
+                      <position x="840" y="1060"/>
+                      <position x="840" y="1080"/>
+                      <position x="830" y="1080"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO">
+                  <connectionPointOut>
+                    <relPosition x="60" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="60" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <outVariable localId="37" height="30" width="50" negated="false" executionOrderId="0">
+              <position x="900" y="1030"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+              </connectionPointIn>
+              <expression>State</expression>
+            </outVariable>
+            <rightPowerRail localId="60" height="310" width="10">
+              <position x="1260" y="720"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
-                <connection refLocalId="5">
-                  <position x="1240" y="140"/>
-                  <position x="1065" y="140"/>
-                  <position x="1065" y="50"/>
-                  <position x="891" y="50"/>
-                </connection>
-                <connection refLocalId="7">
-                  <position x="1240" y="140"/>
-                  <position x="985" y="140"/>
-                  <position x="985" y="100"/>
-                  <position x="731" y="100"/>
+                <connection refLocalId="19">
+                  <position x="1260" y="740"/>
+                  <position x="1141" y="740"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
-                <relPosition x="0" y="160"/>
-                <connection refLocalId="12">
-                  <position x="1240" y="280"/>
-                  <position x="1220" y="280"/>
-                  <position x="1220" y="180"/>
-                  <position x="1201" y="180"/>
+                <relPosition x="0" y="110"/>
+                <connection refLocalId="23" formalParameter="ENO">
+                  <position x="1260" y="830"/>
+                  <position x="1080" y="830"/>
+                  <position x="1080" y="820"/>
+                  <position x="900" y="820"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
-                <relPosition x="0" y="300"/>
-                <connection refLocalId="16">
-                  <position x="1240" y="420"/>
-                  <position x="1185" y="420"/>
-                  <position x="1185" y="320"/>
-                  <position x="1131" y="320"/>
+                <relPosition x="0" y="200"/>
+                <connection refLocalId="32">
+                  <position x="1260" y="920"/>
+                  <position x="1195" y="920"/>
+                  <position x="1195" y="940"/>
+                  <position x="1131" y="940"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
-                <relPosition x="0" y="440"/>
-                <connection refLocalId="25">
-                  <position x="1240" y="560"/>
-                  <position x="1190" y="560"/>
-                  <position x="1190" y="470"/>
-                  <position x="1141" y="470"/>
-                </connection>
-                <connection refLocalId="22">
-                  <position x="1240" y="560"/>
-                  <position x="1020" y="560"/>
-                  <position x="1020" y="530"/>
-                  <position x="800" y="530"/>
+                <relPosition x="0" y="290"/>
+                <connection refLocalId="61">
+                  <position x="1260" y="1010"/>
+                  <position x="1165" y="1010"/>
+                  <position x="1165" y="1020"/>
+                  <position x="1070" y="1020"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
-            <contact localId="20" height="20" width="21" negated="false" executionOrderId="0">
-              <position x="600" y="200"/>
+            <coil localId="61" height="20" width="20" negated="false">
+              <position x="1050" y="1010"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="600" y="210"/>
-                  <position x="560" y="210"/>
-                  <position x="560" y="230"/>
-                  <position x="520" y="230"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>AllRed</variable>
-            </contact>
-            <contact localId="35" height="20" width="21" negated="false" executionOrderId="0">
-              <position x="860" y="370"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="860" y="380"/>
-                  <position x="690" y="380"/>
-                  <position x="690" y="400"/>
-                  <position x="520" y="400"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>AllRed</variable>
-            </contact>
-            <block localId="36" typeName="AND" height="60" width="70" executionOrderId="0">
-              <position x="1040" y="140"/>
-              <inputVariables>
-                <variable formalParameter="IN1">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="10" formalParameter="OUT">
-                      <position x="1040" y="170"/>
-                      <position x="970" y="170"/>
-                      <position x="970" y="160"/>
-                      <position x="900" y="160"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN2">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="37">
-                      <position x="1040" y="190"/>
-                      <position x="1025" y="190"/>
-                      <position x="1025" y="240"/>
-                      <position x="1010" y="240"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="OUT">
-                  <connectionPointOut>
-                    <relPosition x="70" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <contact localId="37" height="20" width="21" negated="true" executionOrderId="0">
-              <position x="990" y="230"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="18">
-                  <position x="990" y="240"/>
-                  <position x="930" y="240"/>
-                  <position x="930" y="250"/>
-                  <position x="871" y="250"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>AllRed</variable>
-            </contact>
-            <contact localId="17" height="20" width="21" negated="false" executionOrderId="0">
-              <position x="590" y="510"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="33">
-                  <position x="590" y="520"/>
-                  <position x="555" y="520"/>
-                  <position x="555" y="490"/>
-                  <position x="520" y="490"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>AllRed</variable>
-            </contact>
-            <block localId="38" typeName="OR" height="60" width="70">
-              <position x="670" y="490"/>
-              <inputVariables>
-                <variable formalParameter="IN1">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="19">
-                      <position x="670" y="520"/>
-                      <position x="640" y="520"/>
-                      <position x="640" y="470"/>
-                      <position x="611" y="470"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-                <variable formalParameter="IN2">
-                  <connectionPointIn>
-                    <relPosition x="0" y="50"/>
-                    <connection refLocalId="17">
-                      <position x="670" y="540"/>
-                      <position x="640" y="540"/>
-                      <position x="640" y="520"/>
-                      <position x="611" y="520"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="OUT">
-                  <connectionPointOut>
-                    <relPosition x="70" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
-            <coil localId="22" height="20" width="20" negated="false" executionOrderId="0">
-              <position x="780" y="520"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="38" formalParameter="OUT">
-                  <position x="780" y="530"/>
-                  <position x="760" y="530"/>
-                  <position x="760" y="520"/>
-                  <position x="740" y="520"/>
+                <connection refLocalId="36" formalParameter="ENO">
+                  <position x="1050" y="1020"/>
+                  <position x="890" y="1020"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
                 <relPosition x="20" y="10"/>
               </connectionPointOut>
-              <variable>CarRedLight</variable>
+              <variable>reset_button</variable>
             </coil>
+            <contact localId="62" height="20" width="20" negated="false">
+              <position x="520" y="420"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="63">
+                  <position x="520" y="430"/>
+                  <position x="365" y="430"/>
+                  <position x="365" y="460"/>
+                  <position x="210" y="460"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="20" y="10"/>
+              </connectionPointOut>
+              <variable>reset_button</variable>
+            </contact>
+            <leftPowerRail localId="63" height="820" width="10">
+              <position x="200" y="240"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="20"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="220"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="410"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="600"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="800"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <rightPowerRail localId="64" height="40" width="10">
+              <position x="770" y="670"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="12" formalParameter="ENO">
+                  <position x="770" y="690"/>
+                  <position x="715" y="690"/>
+                  <position x="715" y="740"/>
+                  <position x="660" y="740"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="65" height="40" width="10">
+              <position x="700" y="870"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="25" formalParameter="ENO">
+                  <position x="700" y="890"/>
+                  <position x="675" y="890"/>
+                  <position x="675" y="940"/>
+                  <position x="650" y="940"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="66" height="40" width="10">
+              <position x="580" y="230"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="39" formalParameter="ENO">
+                  <position x="580" y="250"/>
+                  <position x="560" y="250"/>
+                  <position x="560" y="280"/>
+                  <position x="540" y="280"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="67" height="40" width="10">
+              <position x="570" y="490"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="4" formalParameter="ENO">
+                  <position x="570" y="510"/>
+                  <position x="550" y="510"/>
+                  <position x="550" y="540"/>
+                  <position x="530" y="540"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
           </LD>
         </body>
       </pou>
