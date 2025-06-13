@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2025-06-13T16:30:15"/>
-  <contentHeader name="Unnamed" modificationDateTime="2025-06-13T17:03:19">
+  <contentHeader name="Unnamed" modificationDateTime="2025-06-13T17:08:17">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -33,7 +33,7 @@
                 <UINT/>
               </type>
               <initialValue>
-                <simpleValue value="1"/>
+                <simpleValue value="0"/>
               </initialValue>
             </variable>
             <variable name="wait_for_traffic">
@@ -41,7 +41,7 @@
                 <UINT/>
               </type>
               <initialValue>
-                <simpleValue value="2"/>
+                <simpleValue value="1"/>
               </initialValue>
             </variable>
             <variable name="slow_cars">
@@ -49,7 +49,7 @@
                 <UINT/>
               </type>
               <initialValue>
-                <simpleValue value="3"/>
+                <simpleValue value="2"/>
               </initialValue>
             </variable>
             <variable name="ped_xing">
@@ -57,7 +57,7 @@
                 <UINT/>
               </type>
               <initialValue>
-                <simpleValue value="4"/>
+                <simpleValue value="3"/>
               </initialValue>
             </variable>
             <variable name="all_red">
@@ -65,7 +65,7 @@
                 <UINT/>
               </type>
               <initialValue>
-                <simpleValue value="5"/>
+                <simpleValue value="4"/>
               </initialValue>
             </variable>
           </localVars>
@@ -114,7 +114,7 @@
             </variable>
             <variable name="yellow_delay">
               <type>
-                <UINT/>
+                <TIME/>
               </type>
               <initialValue>
                 <simpleValue value="T#3s"/>
@@ -122,7 +122,7 @@
             </variable>
             <variable name="ped_xing_delay">
               <type>
-                <UINT/>
+                <TIME/>
               </type>
               <initialValue>
                 <simpleValue value="T#15s"/>
@@ -130,7 +130,7 @@
             </variable>
             <variable name="all_red_delay">
               <type>
-                <UINT/>
+                <TIME/>
               </type>
               <initialValue>
                 <simpleValue value="T#1s"/>
