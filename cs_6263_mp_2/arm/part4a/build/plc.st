@@ -144,8 +144,8 @@ PROGRAM part4
   main_sw_indicator := NOT(system_off);
   _TMP_EQ10_OUT := EQ(EN := TRUE, IN1 := state, IN2 := state_no_cars, ENO => _TMP_EQ10_ENO);
   no_cars := _TMP_EQ10_OUT;
-  green_entr_light := no_cars;
-  greep_pkg_light := no_cars;
+  green_entr_light := NOT(system_off) AND no_cars;
+  greep_pkg_light := NOT(system_off) AND no_cars;
   red_entr_light := NOT(no_cars);
   red_pkg_light := NOT(no_cars);
   _TMP_MOVE11_OUT := MOVE(EN := car_sensor_1 AND no_cars, IN := state_car_entering, ENO => _TMP_MOVE11_ENO);

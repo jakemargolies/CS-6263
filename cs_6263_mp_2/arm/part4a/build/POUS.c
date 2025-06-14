@@ -399,8 +399,8 @@ void PART4_body__(PART4 *data__) {
     (UINT)__GET_VAR(data__->STATE_NO_CARS,),
     data__));
   __SET_VAR(data__->,NO_CARS,,__GET_VAR(data__->_TMP_EQ10_OUT,));
-  __SET_VAR(data__->,GREEN_ENTR_LIGHT,,__GET_VAR(data__->NO_CARS,));
-  __SET_VAR(data__->,GREEP_PKG_LIGHT,,__GET_VAR(data__->NO_CARS,));
+  __SET_VAR(data__->,GREEN_ENTR_LIGHT,,(!(__GET_VAR(data__->SYSTEM_OFF,)) && __GET_VAR(data__->NO_CARS,)));
+  __SET_VAR(data__->,GREEP_PKG_LIGHT,,(!(__GET_VAR(data__->SYSTEM_OFF,)) && __GET_VAR(data__->NO_CARS,)));
   __SET_VAR(data__->,RED_ENTR_LIGHT,,!(__GET_VAR(data__->NO_CARS,)));
   __SET_VAR(data__->,RED_PKG_LIGHT,,!(__GET_VAR(data__->NO_CARS,)));
   __SET_VAR(data__->,_TMP_MOVE11_OUT,,__PART4_MOVE__UINT__UINT4(
