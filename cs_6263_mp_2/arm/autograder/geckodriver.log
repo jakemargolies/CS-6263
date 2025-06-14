@@ -1520,3 +1520,71 @@ Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 1
 Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1749863435880	Marionette	INFO	Stopped listening on port 44633
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 47: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1749864968673	geckodriver	INFO	Listening on 127.0.0.1:54805
+1749864969650	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/snap/firefox/current/firefox.launcher" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofilekYvFpY"
+Gtk-Message: 21:36:09.658: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+[21041, Main Thread] WARNING: GTK+ module /snap/firefox/5644/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:201
+
+(firefox:21041): Gtk-WARNING **: 21:36:09.689: GTK+ module /snap/firefox/5644/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 21:36:09.689: Failed to load module "canberra-gtk-module"
+[21041, Main Thread] WARNING: GTK+ module /snap/firefox/5644/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:201
+
+(firefox:21041): Gtk-WARNING **: 21:36:09.690: GTK+ module /snap/firefox/5644/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 21:36:09.690: Failed to load module "canberra-gtk-module"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+1749864969903	Marionette	INFO	Marionette enabled
+1749864969963	Marionette	INFO	Listening on port 38613
+Read port: 38613
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+1749864970173	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+console.error: ({})
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1749865015407	Marionette	INFO	Stopped listening on port 38613
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 47: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1749865017749	geckodriver	INFO	Listening on 127.0.0.1:33551
+1749865018748	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/snap/firefox/current/firefox.launcher" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileCTat6v"
+Gtk-Message: 21:36:58.760: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+[21887, Main Thread] WARNING: GTK+ module /snap/firefox/5644/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:201
+
+(firefox:21887): Gtk-WARNING **: 21:36:58.784: GTK+ module /snap/firefox/5644/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 21:36:58.784: Failed to load module "canberra-gtk-module"
+[21887, Main Thread] WARNING: GTK+ module /snap/firefox/5644/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:201
+
+(firefox:21887): Gtk-WARNING **: 21:36:58.784: GTK+ module /snap/firefox/5644/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so cannot be loaded.
+GTK+ 2.x symbols detected. Using GTK+ 2.x and GTK+ 3 in the same process is not supported.
+Gtk-Message: 21:36:58.784: Failed to load module "canberra-gtk-module"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+1749865018992	Marionette	INFO	Marionette enabled
+1749865019052	Marionette	INFO	Listening on port 33585
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Read port: 33585
+1749865019281	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+console.error: ({})
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
