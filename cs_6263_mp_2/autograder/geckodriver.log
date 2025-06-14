@@ -141,3 +141,23 @@ Read port: 34715
 1749856380240	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+1749862697300	geckodriver	INFO	Listening on 127.0.0.1:59713
+1749862698303	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/local/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofile3yjdWN"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1749862698659	Marionette	INFO	Marionette enabled
+1749862698759	Marionette	INFO	Listening on port 33501
+Read port: 33501
+1749862698848	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+1749863315343	geckodriver	INFO	Listening on 127.0.0.1:50119
+1749863316346	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/local/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofilemQtEMk"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1749863316675	Marionette	INFO	Marionette enabled
+1749863316774	Marionette	INFO	Listening on port 37487
+Read port: 37487
+1749863316871	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
