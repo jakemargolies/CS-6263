@@ -1,0 +1,3 @@
+[submodule "cps_sec_mp4"]
+	path = cps_sec_mp4
+	url = git@github.com:jakemargolies/cps_sec_mp4.git
